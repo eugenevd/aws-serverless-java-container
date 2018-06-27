@@ -1,6 +1,6 @@
 *.class
 
-.aws/
+**/.aws/
 
 # Package Files #
 *.jar
