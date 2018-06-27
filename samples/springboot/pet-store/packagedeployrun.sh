@@ -7,15 +7,16 @@ fi
 
 BUCKETNAME="$1"
 
-echo Maven
- mvn package
+function getURL() {
+   URL_PETSTORE=$(aws cloudformation describe-stacks --stack-name MySampleStack | grep OutputValue | cut -d"\"" -f4)
+}
 
-echo Cloudformation package
- aws cloudformation package --template-file sam.yaml --output-template-file output-sam.yaml --s3-bucket ${BUCKETNAME}
+ mvn package && \
 
-echo Cloudformation deploy
- aws cloudformation deploy --template-file output-sam.yaml --stack-name MySampleStack --capabilities CAPABILITY_IAM
- URL_PETSTORE=$(aws cloudformation describe-stacks --stack-name MySampleStack | grep OutputValue | cut -d"\"" -f4)
+ aws cloudformation package --template-file sam.yaml --output-template-file output-sam.yaml --s3-bucket ${BUCKETNAME} && \
 
-echo Execute fn
+ aws cloudformation deploy --template-file output-sam.yaml --stack-name MySampleStack --capabilities CAPABILITY_IAM && \
+
+ getURL && \
+
  curl ${URL_PETSTORE}?limit=2 | python -m json.tool
