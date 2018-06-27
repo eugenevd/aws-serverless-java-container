@@ -14,14 +14,14 @@ Outputs:
 Resources:
   PetStoreFunction:
     Properties:
-      CodeUri: s3://pet-store-bucket-xas123/97639ca585c1824bd2852327c9df1f3d
+      CodeUri: s3://pet-store-bucket-xas123/f7eafe96c4e0c724cf7e8ab1824702af
       Events:
         GetResource:
           Properties:
             Method: any
             Path: /{proxy+}
           Type: Api
-      Handler: com.amazonaws.serverless.sample.springboot.StreamLambdaHandler::handleRequest
+      Handler: com.amazonaws.serverless.sample.springboot.StreamLambdaHandler
       MemorySize: 1512
       Policies: AWSLambdaBasicExecutionRole
       Runtime: java8

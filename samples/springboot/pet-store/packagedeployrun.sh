@@ -9,9 +9,12 @@ BUCKETNAME="$1"
 
 function getURL() {
    URL_PETSTORE=$(aws cloudformation describe-stacks --stack-name MySampleStack | grep OutputValue | cut -d"\"" -f4)
+   echo ${URL_PETSTORE}
 }
 
- mvn package && \
+ rm target/*.{zip,jar}
+
+ mvn clean package && \
 
  aws cloudformation package --template-file sam.yaml --output-template-file output-sam.yaml --s3-bucket ${BUCKETNAME} && \
 

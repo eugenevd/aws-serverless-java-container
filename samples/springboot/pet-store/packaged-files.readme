@@ -1,0 +1,18 @@
+Build produces:
+
+target/serverless-spring-boot-example-aws-lambda-package.zip
+- contains the code as a .class files in the root (as per the convention)
+
+
+------------------------------
+I did the deployment, and then downloaded the deployment file again to check the content.
+
+Comparing the contents from S3 appears to be the same as those in the file (1)
+
+The executed code, returns result:
+{
+"message": "Internal server error"
+}
+
+And cloudwatch logs:
+Class not found: com.amazonaws.serverless.sample.springboot.StreamLambdaHandler: java.lang.ClassNotFoundException
