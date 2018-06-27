@@ -1,0 +1,23 @@
+<assembly>
+    <id>aws-lambda-package</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}${file.separator}classes</directory>
+            <outputDirectory/>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <excludes>
+                <exclude>org.springframework.boot:spring-boot-devtools</exclude>
+                <exclude>org.apache.tomcat.embed:*</exclude>
+            </excludes>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+</assembly>
