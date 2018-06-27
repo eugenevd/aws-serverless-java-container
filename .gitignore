@@ -1,5 +1,7 @@
 *.class
 
+.aws/
+
 # Package Files #
 *.jar
 *.war
