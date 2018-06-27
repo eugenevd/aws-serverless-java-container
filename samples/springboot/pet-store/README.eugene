@@ -1,0 +1,7 @@
+This is the unmodified fork from upstream
+using mvn shade
+
+and which defined the produced .jar in sam.yaml as CodeUri
+
+It works.
+Except the issues with signed dependency jars like bouncy-castle.
