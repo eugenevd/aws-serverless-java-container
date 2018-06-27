@@ -14,7 +14,7 @@ Outputs:
 Resources:
   PetStoreFunction:
     Properties:
-      CodeUri: s3://pet-store-bucket-xas123/b1809ec5f5f2c73fd84e2e913d7d6dd1
+      CodeUri: s3://pet-store-bucket-xas123/97639ca585c1824bd2852327c9df1f3d
       Events:
         GetResource:
           Properties:
