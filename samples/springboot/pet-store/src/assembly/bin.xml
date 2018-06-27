@@ -6,18 +6,15 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${project.build.directory}${file.separator}classes</directory>
-            <outputDirectory/>
+            <directory>${project.build.directory}${file.separator}lib</directory>
+            <outputDirectory>lib</outputDirectory>
+            <useDefaultExcludes>true</useDefaultExcludes>
         </fileSet>
     </fileSets>
-    <dependencySets>
-        <dependencySet>
-            <excludes>
-                <exclude>org.springframework.boot:spring-boot-devtools</exclude>
-                <exclude>org.apache.tomcat.embed:*</exclude>
-            </excludes>
-            <useProjectArtifact>false</useProjectArtifact>
+    <files>
+        <file>
+            <source>${project.build.directory}${file.separator}${project.artifactId}-${project.version}.jar</source>
             <outputDirectory>lib</outputDirectory>
-        </dependencySet>
-    </dependencySets>
+        </file>
+    </files>
 </assembly>
